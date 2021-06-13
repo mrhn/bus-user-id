@@ -37,16 +37,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function teams()
-    {
-        return $this->hasMany(Team::class);
-    }
-
-    public function latestTeam()
-    {
-        return $this->hasMany(Team::class)->latest()->limit(1);
-    }
-
     public function batches()
     {
         return $this->hasMany(Batch::class);

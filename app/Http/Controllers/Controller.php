@@ -12,12 +12,4 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    public function test()
-    {
-        User::query()->leftJoinSub(
-            Team::whereColumn('teams.user_id', 'users.id')->latest()->limit(1), 'teams', 'teams.user_id', 'users.id')
-            ->where('teams.status', 1)
-            ->toSql();
-    }
 }
