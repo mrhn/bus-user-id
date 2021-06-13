@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
             return new CustomBatchRepository(resolve(BatchFactory::class), resolve(Connection::class), 'job_batches');
         });
 
-        $this->app->extend(CustomBatchRepository::class, function () {
+        $this->app->bind(CustomBatchRepository::class, function () {
             return new CustomBatchRepository(resolve(BatchFactory::class), resolve(Connection::class), 'job_batches');
         });
     }
